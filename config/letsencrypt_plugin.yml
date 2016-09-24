@@ -1,7 +1,7 @@
 default: &default
   endpoint: 'https://acme-v01.api.letsencrypt.org/'
   email: 'hi@openfarm.cc'
-  domain: 'openfarm.cc www.openfarm.cc blog.openfarm.cc'
+  domain: 'openfarm.cc www.openfarm.cc blog.openfarm.cc staging.openfarm.cc'
 
   # in Rails.root, path to private key
   private_key: 'key/keyfile.pem'
@@ -12,7 +12,7 @@ default: &default
 
   # in Rails.root, path where challenge token
   # will be stored in case when DB will not be used
-  challenge_dir_name: 'challenge'
+  # challenge_dir_name: 'challenge'
 
 production:
   <<: *default
