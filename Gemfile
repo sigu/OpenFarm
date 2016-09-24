@@ -42,6 +42,9 @@ gem 'bson_ext'
 gem 'mongoid', '~>4.0.2'
 gem 'active_model_serializers'
 
+# LETS ENCRYPT!
+gem 'letsencrypt_plugin'
+
 # Asset management using bower
 # https://rails-assets.org/
 source 'https://rails-assets.org' do

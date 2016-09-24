@@ -1,5 +1,5 @@
 OpenFarm::Application.routes.draw do
-
+  mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
