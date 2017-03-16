@@ -14,7 +14,6 @@
 //= require moment
 //= require ./angular-libs/angular.openfarm
 //= require_tree ./angular-libs
-
 //= require url-helpers.js
 //= require foundation
 //= require foundation/custom.modernizr
@@ -26,6 +25,7 @@
 //= require foundation/foundation.topbar
 //= require_tree ./guides
 //= require_tree ./crops
+//= require_tree ./crop_searches
 
 //TODO: Need a better folder structure
 $(function() {

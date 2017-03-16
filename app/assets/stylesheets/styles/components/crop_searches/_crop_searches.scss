@@ -1,3 +1,138 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 1096px;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .text-filters-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .text-filter-with-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-right: 18px;
+  }
+
+  .text-filter-label {
+    margin-bottom: 6px;
+    margin-top: 12px;
+    color: #696969;
+  }
+
+  .text-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    border: 1px solid #A9A9A9;
+    border-radius: 3px;
+    height: 50px;
+  }
+
+  .search-icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+  }
+
+  .search-icon {
+    margin-right: 14px;
+  }
+
+  .text-input {
+    border: none;
+    width: 100%;
+    box-shadow: none;
+    padding-bottom: 0;
+  }
+
+  .stages-filter-with-label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 24px;
+  }
+
+  .stages-filter-label {
+    margin-bottom: 6px;
+    color: #696969;
+  }
+
+  .stages-filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .stage-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 101px;
+    background-color: #A9A9A9;
+    border: 1px solid #696969;
+    margin-right: -1px;
+    color: #696969;
+  }
+
+  .search-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #85cb2b;
+    height: 50px;
+    width: 70px;
+    margin-top: 2.2rem;
+  }
+
+  .button-top-spacer {
+    height: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .search-button {
+    border: none;
+    background: none;
+  }
+
+  .guide-filter {
+    width: 340px;
+  }
+
+  .date-filter {
+    width: 201px;
+  }
+
+  .climate-zone-filter {
+    width: 348px;
+  }
+}
+
 .crop-search-results {
   height: 100%;
 

@@ -6,20 +6,110 @@
 <%= content_for(:title) do %><%= t('.title') %><% end %>
 <% end %>
 
-<div class="crop-search-results row wide-row">
-  <div class="crop-results-container columns medium-6 small-12">
-    <h2 class="text-center"><%= t('.choose_a_crop') %></h2>
-    <% if @crops.empty? %>
-    <p class="no-results, text-center"><%= t('.no_crops') %> "<%= params[:q].to_s %>."<br/><%= t('.would_you_like_to') %> <%= link_to t('.add_this_crop'), new_crop_path %>?</p>
-    <% end %>
-    <%= render partial: 'crop_results', object: @crops %>
-  </div>
-  <div class="guide-results-container columns medium-6 small-12">
-    <h2 class="text-center"><%= t('.explore_the_guides') %></h2>
-    <% if @guides.empty? %>
+<% content_for(:start_js) do %>
+  <%= javascript_include_tag '//maps.google.com/maps/api/js?key=' + ENV['GOOGLE_MAPS_API_KEY'] %>
+<% end %>
 
-      <p class="no-results, text-center"><%= t('.no_guides') %><br/><%= t('.perhaps_you_could') %> <%= link_to t('.create_one'), new_guide_path %>?</p>
-    <% end %>
-    <%= render partial: 'guides/guide_results_list', object: @guides %>
+<div ng-controller="searchResultsCtrl">
+  <div class="search-bar-container">
+    <div class="filters-container">
+      <div class="text-filters-container">
+        <div class="guide-filter text-filter-with-label">
+          <div class="text-filter-label">
+            Guide Search
+          </div>
+          <div class="text-input-container">
+            <div class="search-icon-container">
+              <%= icon('search', class: 'search-icon') %>
+            </div>
+            <input class="text-input" placeholder="All crops">
+            </input>
+          </div>
+        </div>
+        <div class="date-filter text-filter-with-label">
+          <div class="text-filter-label">
+            When
+          </div>
+          <div class="text-input-container">
+            <div class="search-icon-container">
+              <%= icon('calendar', class: 'search-icon') %>
+            </div>
+            <input class="text-input" placeholder="Anytime">
+            </input>
+          </div>
+        </div>
+        <div class="climate-zone-filter text-filter-with-label">
+          <div class="text-filter-label">
+            Climate Zone
+          </div>
+          <div class="text-input-container">
+            <div class="search-icon-container">
+              <%= icon('map-marker', class: 'search-icon') %>
+            </div>
+            <span location
+                  class="text-input"
+                  placeholder="Anywhere"
+                  ng-model="search_location"
+                  loading-text="<%= t('application.loading_locations') %>">
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- The stages filter should be hidden on the home page and shown on the search page -->
+      <div class="stages-filter-with-label-container">
+        <div class="stages-filter-label">Stages</div>
+        <div class="stages-filter-container">
+          <div class="stage-filter">
+            <div>ALL</div>
+          </div>
+          <div class="stage-filter">
+            <div>PREPARE</div>
+          </div>
+          <div class="stage-filter">
+            <div>SOW</div>
+          </div>
+          <div class="stage-filter">
+            <div>GERMINATE</div>
+          </div>
+          <div class="stage-filter">
+            <div>BLOSSOM</div>
+          </div>
+          <div class="stage-filter">
+            <div>HARVEST</div>
+          </div>
+          <div class="stage-filter">
+            <div>POST-PROCESS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The search button should be shown on the home page and hidden on the search page -->
+    <!-- On the search page, the search filters should be called with Angular when the user selects a filter, instead of using the search button to query the database (I think...) -->
+    <div class="search-button-container">
+      <button class="search-button">
+        <%= icon('search') %>
+      </button>
+    </div>
+  </div>
+
+  <div class="crop-search-results row wide-row">
+
+    <div class="crop-results-container columns medium-6 small-12">
+      <h2 class="text-center"><%= t('.choose_a_crop') %></h2>
+      <% if @crops.empty? %>
+      <p class="no-results, text-center"><%= t('.no_crops') %> "<%= params[:q].to_s %>."<br/><%= t('.would_you_like_to') %> <%= link_to t('.add_this_crop'), new_crop_path %>?</p>
+      <% end %>
+      <%= render partial: 'crop_results', object: @crops %>
+    </div>
+
+    <div class="guide-results-container columns medium-6 small-12">
+      <h2 class="text-center"><%= t('.explore_the_guides') %></h2>
+      <% if @guides.empty? %>
+
+        <p class="no-results, text-center"><%= t('.no_guides') %><br/><%= t('.perhaps_you_could') %> <%= link_to t('.create_one'), new_guide_path %>?</p>
+      <% end %>
+      <%= render partial: 'guides/guide_results_list', object: @guides %>
+    </div>
+
   </div>
 </div>

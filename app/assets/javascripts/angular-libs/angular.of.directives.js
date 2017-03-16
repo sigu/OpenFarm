@@ -32,10 +32,18 @@ openFarmApp.directive('location', [
     return {
       restrict: 'A',
       require: '?ngModel',
-      scope: { ngModel:'=' },
+      scope: {
+        ngModel: '=',
+      },
       controller: ['$scope', '$element', '$attrs',
         function ($scope, $element, $attrs) {
+
+          $scope.placeholder = $attrs.placeholder;
+
           $scope.loadingText = $attrs.loadingText;
+
+          $scope.class = $attrs.class
+
           $scope.$watch('ngModel', function(){
             $scope.location = $scope.ngModel;
           });
