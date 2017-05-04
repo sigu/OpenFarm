@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
   protect_from_forgery with: :exception
-
+  helper :all
   # Allow certain fields for devise - needed in Rails 4.0+
   before_filter :update_sanitized_params, if: :devise_controller?
 
@@ -43,15 +43,6 @@ class ApplicationController < ActionController::Base
   def safe_user_attrs
     [:display_name, :email, :location, :password, :units,
      :years_experience, :mailing_list, :is_private, :agree]
-  end
-
-  def current_admin
-    if current_user && current_user.admin?
-      return current_user
-    else
-      flash[:notice] = 'I told you kids to get out of here!'
-      redirect_to '/' and return
-    end
   end
 
   private

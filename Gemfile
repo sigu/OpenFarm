@@ -42,6 +42,7 @@ gem 'utf8-cleaner'
 
 gem 'bson_ext'
 gem 'mongoid', '~>4.0.2'
+gem 'kaminari-mongoid'
 gem 'active_model_serializers'
 
 # Asset management using bower
@@ -72,6 +73,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -103,8 +105,9 @@ end
 
 #Used for static pages in /app/views/pages
 gem 'high_voltage'
+
 gem 'devise', '~> 4.2.0'
-gem 'rails_admin'
+gem 'rails_admin', '~> 1.1.1'
 gem 'ng-rails-csrf'
 
 # LETSENCRYPT

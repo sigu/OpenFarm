@@ -1,29 +1,51 @@
 <footer id="footer">
     <div class="row">
-      <div class="about columns medium-4 small-12">
-        <h3 class="crop-name"> About </h3>
-        <%= link_to(icon('info-circle') +
-          t('meta.about'),page_path('about')) %>
-        <%= link_to(icon('question-circle') +
-          t('meta.faq'),page_path('faq')) %>
-        <%= link_to(icon('rss-square') +
-          t('meta.blog'), 'http://blog.openfarm.cc') %>
+      <div class="about columns medium-3 small-12">
+        <h3> Openfarm </h3>
+
+        <%= link_to(t('meta.about'), page_path('about')) %>
+        <%= link_to(t('meta.contact'), page_path('contact')) %>
+        <%= link_to(t('meta.blog'), 'http://blog.openfarm.cc') %>
       </div>
-      <div class="contact columns medium-4 small-12">
-        <h3 class="crop-name"> Contact </h3>
-        <%= link_to(icon('comments-o') +
-          t('meta.slack'), 'http://slack.openfarm.cc') %>
-        <%= link_to(icon('envelope') +
-          t('meta.mailing_list'), page_path('mailing-list')) %>
+
+      <div class="contribute columns medium-3 small-12">
+        <h3> Contribute </h3>
+
+        <%= link_to(t('meta.getting_started'), 'https://github.com/openfarmcc/OpenFarm/#development') %>
+
+        <%= link_to(t('meta.slack'), 'http://slack.openfarm.cc') %>
+        <%= link_to(t('meta.code_of_conduct'),page_path('code_of_conduct')) %>
       </div>
-      <div class="legal columns medium-4 small-12">
-        <h3 class="crop-name"> Legal </h3>
-        <%= link_to(icon('lock') +
-          t('meta.privacy'),page_path('privacy')) %>
-        <%= link_to(icon('file-text-o') +
-          t('meta.tos'),page_path('tos')) %>
-        <%= link_to(icon('book') +
-          t('meta.code_of_conduct'),page_path('code_of_conduct')) %>
+
+      <div class="legal columns medium-3 small-12">
+        <h3> Openfarmers </h3>
+
+        <%= link_to(t('meta.faq'),page_path('faq')) %>
+        <%= link_to(t('meta.how_it_works'), '/en#how-it-works') %>
+        <%= link_to(t('meta.help'), page_path('contact')) %>
+
       </div>
+
+      <div class="contact columns medium-3 small-12">
+        <h3> Stay in touch </h3>
+        <%= link_to(icon('facebook-official'), 'https://www.facebook.com/OpenFarmCC/', class: 'social') %>
+        <%= link_to(icon('twitter'), 'https://twitter.com/openfarmcc/', class: 'social') %>
+        <%= link_to(icon('github'), 'https://github.com/OpenFarmCC/openfarm/', class: 'social') %>
+        <%= link_to(icon('envelope'), page_path('contact'), class: 'social') %>
+
+        <form action="//openfarm.us8.list-manage.com/subscribe/post?u=d41f97f612d606f032a884227&amp;id=8b8c94b1c5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate class="">
+          <label for="mce-EMAIL">Newsletter:
+          </label>
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_d41f97f612d606f032a884227_8b8c94b1c5" tabindex="-1" value=""></div>
+          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </form>
+      </div>
+    </div>
+    <div class="row logo-and-terms">
+      <h1>Openfarm</h1>
+      <p><%= link_to(t('meta.tos'),page_path('tos')) %> &amp; <%= link_to(t('meta.privacy'), page_path('privacy')) %>
+      </p>
     </div>
 </footer>
