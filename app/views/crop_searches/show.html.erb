@@ -6,20 +6,62 @@
 <%= content_for(:title) do %><%= t('.title') %><% end %>
 <% end %>
 
-<div class="crop-search-results row wide-row">
-  <div class="crop-results-container columns medium-6 small-12">
-    <h2 class="text-center"><%= t('.choose_a_crop') %></h2>
-    <% if @crops.empty? %>
-    <p class="no-results, text-center"><%= t('.no_crops') %> "<%= params[:q].to_s %>."<br/><%= t('.would_you_like_to') %> <%= link_to t('.add_this_crop'), new_crop_path %>?</p>
-    <% end %>
-    <%= render partial: 'crop_results', object: @crops %>
-  </div>
-  <div class="guide-results-container columns medium-6 small-12">
-    <h2 class="text-center"><%= t('.explore_the_guides') %></h2>
-    <% if @guides.empty? %>
+ <div class="search-page-bg">
+    <div class="row">
+        <div class="columns medium-3 small-12">
+            <label class="control-label">Guide search</label>
+            <input type="text" class="form-control fa fa-user" placeholder="Tomatoes" />
+        </div>
+        <div class="columns medium-3 small-12">
+            <label class="control-label">When</label>
+            <div class="form-component input--medium input--search">
+                <input type="text" placeholder="Search">
+            </div>
 
-      <p class="no-results, text-center"><%= t('.no_guides') %><br/><%= t('.perhaps_you_could') %> <%= link_to t('.create_one'), new_guide_path %>?</p>
-    <% end %>
-    <%= render partial: 'guides/guide_results_list', object: @guides %>
-  </div>
+
+        </div>
+        <div class="columns medium-3 small-12">
+            <label class="control-label">Climate zone</label>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="Climate zone" />
+                </div>
+
+        </div>
+        <div class="columns medium-3 small-12">
+            <label class="control-label">Search</label>
+        <button type="submit" class="btn" style="padding-bottom:0px; float: left;" padding-bottom:0px;><i class="fa fa-search"></i>
+        </button>
+        </div>
+
+    </div>
+<div class="row">
+            <label class="control-label">Climate zone</label>
+
+            <button class="btn btn-xs search-btn">PREPARE</button>
+            <button class="btn btn-sm search-btn">SOW</button>
+            <button class="btn btn-sm search-btn">GERMINATE</button>
+            <button class="btn btn-sm search-btn">BLOSSOM</button>
+            <button class="btn btn-sm search-btn">HARVEST</button>
+            <button class="btn btn-sm search-btn">POST PROCESS</button>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- <div class="row">
+    <div class="search-bar-container col-md-3">
+        <div class="search-bar">
+            <div class="search-input-container">
+                <div crop-search="">
+                    <div class="row collapse postfix-radius"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 </div>

@@ -1,0 +1,25 @@
+<% if @crops.present? %>
+<%= content_for(:title) do %><%= @crops.first.name %><% end %>
+<%= content_for(:social_image) do %><%= image_url(@crops.first.main_image_path) %><% end %>
+<%= content_for(:description) do %><%= truncate(@crops.first.description, length: 140, separator: ' ') %><% end %>
+<% else %>
+<%= content_for(:title) do %><%= t('.title') %><% end %>
+<% end %>
+
+<div class="crop-search-results row wide-row">
+  <div class="crop-results-container columns medium-6 small-12">
+    <h2 class="text-center"><%= t('.choose_a_crop') %></h2>
+    <% if @crops.empty? %>
+    <p class="no-results, text-center"><%= t('.no_crops') %> "<%= params[:q].to_s %>."<br/><%= t('.would_you_like_to') %> <%= link_to t('.add_this_crop'), new_crop_path %>?</p>
+    <% end %>
+    <%= render partial: 'crop_results', object: @crops %>
+  </div>
+  <div class="guide-results-container columns medium-6 small-12">
+    <h2 class="text-center"><%= t('.explore_the_guides') %></h2>
+    <% if @guides.empty? %>
+
+      <p class="no-results, text-center"><%= t('.no_guides') %><br/><%= t('.perhaps_you_could') %> <%= link_to t('.create_one'), new_guide_path %>?</p>
+    <% end %>
+    <%= render partial: 'guides/guide_results_list', object: @guides %>
+  </div>
+</div>

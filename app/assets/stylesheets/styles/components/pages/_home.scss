@@ -86,6 +86,15 @@ video { display: block; }
     }
   }
 }
+   .search-btn{
+    background-color: rgba(153,153,153,0.5);
+    border-radius: 2px;
+    color: grey;
+    font-weight: 200;
+    &:hover {
+    background-color: rgba(153,153,153,0.7);
+    }
+  }
 
 .guide-count {
   float: right;
@@ -98,6 +107,9 @@ video { display: block; }
 }
 
 .crop-name {
+  padding-left: 1em;
+}
+.search-name {
   padding-left: 1em;
 }
 
@@ -115,6 +127,14 @@ video { display: block; }
   padding: 1.25em 0 1.5em;
   text-align: center;
 }
+
+.search-page-bg {
+  background-color: $gray-green;
+  padding: 1.25em 0 1.5em;
+  text-align: center;
+}
+
+
 
 .survey-heading {
   margin-bottom: 1em;
